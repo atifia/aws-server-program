@@ -1,11 +1,8 @@
 #!/usr/bin/python           # This is client.py file
 
-import socket               # Import socket module
-
-s = socket.socket()         # Create a socket object
-host = socket.gethostname() # Get local machine name
-port = 4032                # Reserve a port for your service.
-
-s.connect(("", 4032))
-print s.recv(1024)
-s.close                     # Close the socket when done
+from socket import *
+s = socket(AF_INET,SOCK_STREAM)
+s.connect(("www.python.org",80)) # Connect
+s.send("GET /index.html HTTP/1.0\n\n") # Send request
+data = s.recv(10000) # Get response
+s.close()

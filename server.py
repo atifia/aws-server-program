@@ -1,16 +1,11 @@
 #!/usr/bin/python           # This is server.py file
 
-import socket               # Import socket module
-
-s = socket.socket()         # Create a socket object
-host = socket.gethostname() # Get local machine name
-port = 4032                # Reserve a port for your service.
-s.bind(("",4032))        # Bind to the port
-
-s.listen(5)                 # Now wait for client connection.
+from socket import *
+s = socket(AF_INET,SOCK_STREAM)
+s.bind(("",4032))
+s.listen(5)
 while True:
-   c, addr = s.accept()     # Establish connection with client.
-   print 'Got connection from', addr
-   c.send('Thank you for connecting')
-   c.close()                # Close the connection
- 
+ c,a = s.accept()
+ print "Received connection from", a
+ c.send("Hello %s\n" % a[0])
+ c.close()

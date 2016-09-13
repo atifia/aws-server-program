@@ -1,4 +1,4 @@
-#!/usr/bin/python           # This is client.py file
+#!/usr/bin/python           # This is client1.py file
 
 from socket import *
 s = socket(AF_INET,SOCK_STREAM)

@@ -1,4 +1,4 @@
-#!/usr/bin/python           # This is server.py file
+#!/usr/bin/python           # This is server1.py file
 
 from socket import *
 s = socket(AF_INET,SOCK_STREAM)

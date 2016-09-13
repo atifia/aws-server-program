@@ -3,7 +3,7 @@ import socket               # Import socket module
 s = socket.socket()         # Create a socket object
 host = socket.gethostname() # Get local machine name
 port = 4032                # Reserve a port for your service.
-s.bind((52.57.29.249,4032))        # Bind to the port
+s.bind(("",4032))        # Bind to the port
 
 s.listen(5)                 # Now wait for client connection.
 while True:
